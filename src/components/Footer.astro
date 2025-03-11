@@ -1,0 +1,55 @@
+---
+import Logo from '../assets/icons/IconLogo.svg';
+import Facebook from '../assets/icons/IconFacebook.svg';
+import Instagram from '../assets/icons/IconInstagram.svg';
+import Twitter from '../assets/icons/IconTwitter.svg';
+import Linkedin from '../assets/icons/IconLinkedin.svg';
+---
+
+<footer class="bg-gray-900 text-white space-y-10 pt-16 pb-8 lg:grid lg:grid-cols-4 lg:gap-8 lg:px-10">
+  <!-- Logo -->
+  <div class="lg:col-span-1 flex justify-center lg:justify-start">
+    <Logo class="h-16" />
+  </div>
+
+  <!-- Navigation -->
+  <nav class="px-5 columns-2 gap-8 space-y-8 text-sm *:space-y-3 lg:columns-3 lg:col-span-3">
+    <div>
+      <h3 class="uppercase font-bold text-gray-300">Festival</h3>
+      <ul class="text-gray-400">
+        <li><a href="/about" class="hover:text-white">À propos</a></li>
+        <li><a href="/programmation" class="hover:text-white">Programmation</a></li>
+        <li><a href="/infos" class="hover:text-white">Infos pratiques</a></li>
+        <li><a href="/contact" class="hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="uppercase font-bold text-gray-300">Participer</h3>
+      <ul class="text-gray-400">
+        <li><a href="/inscriptions" class="hover:text-white">Inscriptions</a></li>
+        <li><a href="/benevoles" class="hover:text-white">Devenir bénévole</a></li>
+        <li><a href="/partenaires" class="hover:text-white">Partenaires</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="uppercase font-bold text-gray-300">Légal</h3>
+      <ul class="text-gray-400">
+        <li><a href="/mentions-legales" class="hover:text-white">Mentions légales</a></li>
+        <li><a href="/confidentialite" class="hover:text-white">Politique de confidentialité</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Réseaux Sociaux & Copyright -->
+  <div class="px-5 text-gray-400 border-t border-gray-700 py-8 space-y-6 text-center lg:col-span-4 lg:flex lg:justify-between">
+    <p class="text-sm">© 2024 Festival Miaullywood - Tous droits réservés</p>
+    <ul class="flex gap-6 justify-center">
+      <li><a href="https://facebook.com" aria-label="Facebook" class="hover:text-white"><Facebook class="h-6" /></a></li>
+      <li><a href="https://instagram.com" aria-label="Instagram" class="hover:text-white"><Instagram class="h-6" /></a></li>
+      <li><a href="https://twitter.com" aria-label="Twitter" class="hover:text-white"><Twitter class="h-6" /></a></li>
+      <li><a href="https://linkedin.com" aria-label="Linkedin" class="hover:text-white"><Linkedin class="h-6" /></a></li>
+    </ul>
+  </div>
+</footer>

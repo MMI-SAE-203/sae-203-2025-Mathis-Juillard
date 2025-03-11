@@ -1,5 +1,5 @@
 {
-  "name": "sae203-2025",
+  "name": "c",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,6 +9,23 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.4.2"
-  }
+    "@fontsource-variable/mulish": "^5.2.5",
+    "@fontsource/space-mono": "^5.2.5",
+    "@tailwindcss/vite": "^4.0.12",
+    "astro": "^5.4.2",
+    "tailwindcss": "^4.0.12"
+  },
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/_DENqoZ4) Nom: Juillard Prenom: Mathis URL netlify: https://glittering-marshmallow-bb17ca.netlify.app/",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MMI-SAE-203/sae-203-2025-Mathis-Juillard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MMI-SAE-203/sae-203-2025-Mathis-Juillard/issues"
+  },
+  "homepage": "https://github.com/MMI-SAE-203/sae-203-2025-Mathis-Juillard#readme"
 }
