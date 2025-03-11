@@ -29,20 +29,23 @@
 
 
 // Infos d'un film par ID
-import { getFilmById } from './backend.mjs';
-try {
-    const film = await getFilmById('ul1mk6ngru02nwg');
-    console.table(film);
-} catch (e) {
-    console.error(e);
-}
-
+// import { getFilmById } from './backend.mjs';
 // try {
-//     const maisonsBySurface = await bySurface(100);
-//     console.table(maisonsBySurface);
+//     const film = await getFilmById('ul1mk6ngru02nwg');
+//     console.table(film);
 // } catch (e) {
 //     console.error(e);
 // }
+
+
+// Infos d'une activité par ID
+import { getActivityById } from './backend.mjs';
+try {
+    const activity = await getActivityById('a9j2hb9p2yaq02u');
+    console.table(activity);
+} catch (e) {
+    console.error(e);
+}
 
 // try {
 //     const maisonsSurfaceOrPrice = await surfaceORprice(100, 100000);

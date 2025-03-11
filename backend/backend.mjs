@@ -34,7 +34,7 @@ export async function getFilmById(id) {
 
 // Infos d'une activité par ID
 export async function getActivityById(id) {
-    const activity = await pb.collection('Activites').getOne(id);
+    const activity = await pb.collection('activite').getOne(id);
     return activity;
 }
 
