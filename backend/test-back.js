@@ -126,51 +126,39 @@
 
 
 // Supprimer un film par ID
-import { deleteFilmById } from './backend.mjs';
-try {
-    const recordId = 'z67kmw3bohv0hy3';
-    await deleteFilmById(recordId);
-    console.log("Film supprimée");
-} catch (e) {
-    console.error(e);
-}
-
-
+// import { deleteFilmById } from './backend.mjs';
 // try {
-//     const agentId = '0oln692yb60c7fy';
-//     // await deleteAgentById(agentId);
-//     console.log("Agent supprimé");
+//     const recordId = 'dva8eyqne72hj64';
+//     await deleteFilmById(recordId);
+//     console.log("Film supprimée");
 // } catch (e) {
 //     console.error(e);
 // }
 
 
+// Supprimer une activité par ID
+// import { deleteActivityById } from './backend.mjs';
 // try {
-//     const data = {
-//         "nom_maison": "test",
-//         "superficie": 120,
-//         "favori": true
-//     };
-//     const recordId = 'e03l1n30067j3z2';
-//     // await updateMaisonById(recordId, data);
-//     console.log("Maison mise à jour");
+//     const agentId = '0xv4t059ksv0nkg';
+//     await deleteActivityById(agentId);
+//     console.log("Activité supprimé");
 // } catch (e) {
 //     console.error(e);
 // }
 
 
+// Supprimer un invité par ID
+// import { deleteInviteById } from './backend.mjs';
 // try {
-//     const data = {
-//         "nom": "test",
-//         "prenom": "test",
-//         "email": "test@test.com"
-//     };
-//     const recordId = 'w28ha9dwwd8u6bk';
-//     // await updateAgentById(recordId, data);
-//     console.log("Agent mis à jour");
-// } catch (e) {
+//     const recordId ='46xo41694p0uv6e';
+//     await deleteInviteById(recordId);
+//     console.log("Invité supprimé");
+// }
+// catch (e) {
 //     console.error(e);
 // }
+
+
 
 // // Authentification SuperUser
 // try {

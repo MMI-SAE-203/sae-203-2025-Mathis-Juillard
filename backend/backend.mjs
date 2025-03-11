@@ -89,7 +89,3 @@ export async function deleteInviteById(id) {
     await pb.collection('Invites').delete(id);
 }
 
-// Suppression d'un film, activité ou invité
-export async function deleteItemById(type, id) {
-    await pb.collection(type).delete(id);
-}
