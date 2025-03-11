@@ -70,8 +70,8 @@
 // Liste des activités d’un animateur par nom
 import { getActivitiesByAnimatorName } from './backend.mjs';
 try {
-    const activities = await getActivitiesByAnimatorName('John Doe');
-    console.log(JSON.stringify(activities, null, 2));
+    const activities = await getActivitiesByAnimatorName('Dupont');
+    console.table(activities);
 } catch (e) {
     console.error(e);
 }
