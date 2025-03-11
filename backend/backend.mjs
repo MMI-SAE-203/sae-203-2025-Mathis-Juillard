@@ -11,9 +11,9 @@ export async function allFilmsSortedByProjectionDate() {
 }
 
 // Liste de toutes les activités triées par date
-export async function allActivities() {
-    const activities = await pb.collection('Activites').getFullList({
-        sort: 'date',
+export async function allActivitiesbydate() {
+    const activities = await pb.collection('activite').getFullList({
+        sort: 'date_heure_activite',
     });
     return activities;
 }

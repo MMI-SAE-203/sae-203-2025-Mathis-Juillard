@@ -1,18 +1,21 @@
-import {allFilmsSortedByProjectionDate} from './backend.mjs';
-try {
-    const films = await allFilmsSortedByProjectionDate();
-    console.table(JSON.stringify(films, null, 2));
-} catch (e) {
-    console.error(e);
-}
-
-
+// Liste de tous les films triés par date de projection
+// import {allFilmsSortedByProjectionDate} from './backend.mjs';
 // try {
-//     const oneRecord = await oneID('398qs928q9er13u');
-//     console.table(oneRecord);
+//     const films = await allFilmsSortedByProjectionDate();
+//     console.table(JSON.stringify(films, null, 2));
 // } catch (e) {
 //     console.error(e);
 // }
+
+
+// Liste de toutes les activités triées par date
+import {allActivitiesbydate} from './backend.mjs';
+try {
+    const activities = await allActivitiesbydate();
+    console.table(activities);
+} catch (e) {
+    console.error(e);
+}
 
 // try {
 //     const maisonF = await allMaisonsFavori();
