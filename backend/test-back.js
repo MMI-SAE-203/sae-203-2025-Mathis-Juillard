@@ -89,7 +89,7 @@
 //         "langue": 'Francais',
 //         "production": 'oui oui'
 //     };
-//     // await addNewFilm(newFilm);
+//     await addNewFilm(newFilm);
 //     console.log("Film ajoutée");
 // } catch (e) {
 //     console.error(e);
@@ -124,13 +124,16 @@
 //     console.error(e);
 // }
 
-// try {
-//     const recordId = 'z67kmw3bohv0hy3';
-//     // await deleteMaisonById(recordId);
-//     console.log("Maison supprimée");
-// } catch (e) {
-//     console.error(e);
-// }
+
+// Supprimer un film par ID
+import { deleteFilmById } from './backend.mjs';
+try {
+    const recordId = 'z67kmw3bohv0hy3';
+    await deleteFilmById(recordId);
+    console.log("Film supprimée");
+} catch (e) {
+    console.error(e);
+}
 
 
 // try {
