@@ -55,19 +55,38 @@ export async function getActivitiesByAnimatorId(InviteId) {
 // Liste des activités d’un animateur par nom
 export async function getActivitiesByAnimatorName(name) {
     const invite = await pb.collection('Invites').getFirstListItem(`nom = "${name}"`);
-    if (!invite) throw new Error("Animateur non trouvé");
     return await getActivitiesByAnimatorId(invite.id);
 }
 
-// Ajouter ou modifier un film, une activité ou un invité
-export async function addOrUpdateItem(type, data) {
-    const collection = pb.collection(type);
 
-    if (data.id) {
-        await collection.update(data.id, data);
-    } else {
-        await collection.create(data);
-    }
+// Ajouter un nouveau film
+export async function addNewFilm(newFilm) {
+    await pb.collection('Films').create(newFilm);
+}
+
+// Ajouter une nouvelle activité
+export async function addNewActivity(newActivity) {
+    await pb.collection('activite').create(newActivity);
+}
+
+// Ajouter un nouvel invité
+export async function addNewInvite(newInvite) {
+    await pb.collection('Invites').create(newInvite);
+}
+
+// Supprimer un film par ID
+export async function deleteFilmById(id) {
+    await pb.collection('Films').delete(id);
+}
+
+// Supprimer une activité par ID
+export async function deleteActivityById(id) {
+    await pb.collection('activite').delete(id);
+}
+
+// Supprimer un invité par ID
+export async function deleteInviteById(id) {
+    await pb.collection('Invites').delete(id);
 }
 
 // Suppression d'un film, activité ou invité

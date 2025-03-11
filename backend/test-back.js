@@ -68,82 +68,61 @@
 // }
 
 // Liste des activités d’un animateur par nom
-import { getActivitiesByAnimatorName } from './backend.mjs';
-try {
-    const activities = await getActivitiesByAnimatorName('Dupont');
-    console.table(activities);
-} catch (e) {
-    console.error(e);
-}
-
+// import { getActivitiesByAnimatorName } from './backend.mjs';
 // try {
-//     const maison = await allMaisonsByAgentId('43kpge23iv49tlr');
-//     console.table(maison);
-// } catch (e) {
-//     console.error(e);
-// }
-
-// try {
-//     const maison = await allMaisonsByAgentName('ludwig');
-//     console.table(maison);
-// } catch (e) {
-//     console.error(e);
-// }
-
-// try {
-//     const maisonsSortedAgent = await allMaisonsSortedAgent();
-//     console.table(maisonsSortedAgent);
+//     const activities = await getActivitiesByAnimatorName('Dupont');
+//     console.table(activities);
 // } catch (e) {
 //     console.error(e);
 // }
 
 
+// Ajouter un nouveau film
+// import { addNewFilm } from './backend.mjs';
 // try {
-//     const maisonsBySurfaceAgent = await bySurfaceAgent(100, 'l05mdtj0055939n');
-//     console.table(maisonsBySurfaceAgent);
-// } catch (e) {
-//     console.error(e);
-// }
-
-
-// try {
-//     const maisonFavori = await maisonFavoriAgent("jvgy483dclpctk8");
-//     console.table(maisonFavori);
-// } catch (e) {
-//     console.error(e);
-// }
-
-
-// try {
-//     const newMaison = {
-//         "nom_maison": "MaisonMMI",
-//         "Adresse": "Rue test Montbéliard",
-//         "superficie": 150,
-//         "Prix": 100000,
-//         "favori": true,
-//         "Nombre_chambre": 5,
-//         "Nombre_sdb": 2,
-//         "Agent": "43kpge23iv49tlr"
+//     const newFilm = {
+//         "titre_film": "test Film",
+//         "synopsis_film": "test de synopsis",
+//         "duree_film": '1heure50',
+//         "list_acteur": 'test1,test2,test3',
+//         "realisateur": 'Monsieur test',
+//         "langue": 'Francais',
+//         "production": 'oui oui'
 //     };
-//     // await addNewMaison(newMaison);
-//     console.log("Maison ajoutée");
+//     // await addNewFilm(newFilm);
+//     console.log("Film ajoutée");
 // } catch (e) {
 //     console.error(e);
 // }
 
 
+// Ajouter une nouvelle activité
+// import { addNewActivity } from './backend.mjs';
 // try {
-//     const newAgent = {
-//         "nom": "AgentMMI",
-//         "prenom": "Mathis",
-//         "email": "agentmmi@example.com",
+//     const newActivite = {
+//         "nom_activite": "Test",
+//         "description_activite": "Theatre",
 //     };
-//     // await addNewAgent(newAgent);
-//     console.log("Agent ajouté");
+//     await addNewActivity(newActivite);
+//     console.log("Activite ajouté");
 // } catch (e) {
 //     console.error(e);
 // }
 
+
+// Ajouter un nouvel invité
+// import { addNewInvite } from './backend.mjs';
+// try {
+//     const newInvite = {
+//         "nom": "Test",
+//         "prenom": "Activite",
+//         "Biographie": "Nee en 1999",
+//     };
+//     await addNewInvite(newInvite);
+//     console.log("Invite ajouté");
+// } catch (e) {
+//     console.error(e);
+// }
 
 // try {
 //     const recordId = 'z67kmw3bohv0hy3';
