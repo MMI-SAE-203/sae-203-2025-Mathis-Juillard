@@ -45,9 +45,9 @@ export async function getInviteById(id) {
 }
 
 // Liste des activités d’un animateur par ID
-export async function getActivitiesByAnimatorId(id) {
-    const activities = await pb.collection('Activites').getFullList({
-        filter: `animateurId = "${id}"`,
+export async function getActivitiesByAnimatorId(InviteId) {
+    const activities = await pb.collection('activite').getFullList({
+        filter: `invite_associe = '${InviteId}'`,
     });
     return activities;
 }

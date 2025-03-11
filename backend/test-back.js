@@ -49,27 +49,32 @@
 
 
 // Infos d'un acteur/réalisateur par ID
-import { getInviteById } from './backend.mjs';
+// import { getInviteById } from './backend.mjs';
+// try {
+//     const invite = await getInviteById('zy9n3t9j3uo870y');
+//     console.table(invite);
+// } catch (e) {
+//     console.error(e);
+// }
+
+
+// Liste des activités d’un animateur par ID
+// import { getActivitiesByAnimatorId } from './backend.mjs';
+// try {
+//     const activities = await getActivitiesByAnimatorId('240lskfok4p8n3d');
+//     console.table(activities);
+// } catch (e) {
+//     console.error(e);
+// }
+
+// Liste des activités d’un animateur par nom
+import { getActivitiesByAnimatorName } from './backend.mjs';
 try {
-    const invite = await getInviteById('zy9n3t9j3uo870y');
-    console.table(invite);
+    const activities = await getActivitiesByAnimatorName('John Doe');
+    console.log(JSON.stringify(activities, null, 2));
 } catch (e) {
     console.error(e);
 }
-
-// try {
-//     const agent = await agentById('43kpge23iv49tlr');
-//     console.table(agent);
-// } catch (e) {
-//     console.error(e);
-// }
-
-// try {
-//     const maisonsAgents = await allMaisonsAgents();
-//     console.log(JSON.stringify(maisonsAgents, null, 2));
-// } catch (e) {
-//     console.error(e);
-// }
 
 // try {
 //     const maison = await allMaisonsByAgentId('43kpge23iv49tlr');
