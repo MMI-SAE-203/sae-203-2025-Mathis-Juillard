@@ -19,9 +19,9 @@ export async function allActivitiesbydate() {
 }
 
 // Liste de tous les acteurs/réalisateurs triés par ordre alphabétique
-export async function allInvites() {
+export async function allActorsDirectorsSorted() {
     const invites = await pb.collection('Invites').getFullList({
-        sort: 'nom',
+        sort: 'prenom',
     });
     return invites;
 }

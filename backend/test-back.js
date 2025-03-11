@@ -9,20 +9,23 @@
 
 
 // Liste de toutes les activités triées par date
-import {allActivitiesbydate} from './backend.mjs';
-try {
-    const activities = await allActivitiesbydate();
-    console.table(activities);
-} catch (e) {
-    console.error(e);
-}
-
+// import {allActivitiesbydate} from './backend.mjs';
 // try {
-//     const maisonF = await allMaisonsFavori();
-//     console.table(maisonF);
+//     const activities = await allActivitiesbydate();
+//     console.table(activities);
 // } catch (e) {
 //     console.error(e);
 // }
+
+
+// Liste de tous les acteurs/réalisateurs triés par ordre alphabétique
+import { allActorsDirectorsSorted } from './backend.mjs';
+try {
+    const actorsDirectors = await allActorsDirectorsSorted();
+    console.table(actorsDirectors);
+} catch (e) {
+    console.error(e);
+}
 
 // try {
 //     const maisonsSorted = await allMaisonsSorted();
