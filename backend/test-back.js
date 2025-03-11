@@ -1,9 +1,7 @@
-import {} from './backend.mjs';
-
-
+import {allFilmsSortedByProjectionDate} from './backend.mjs';
 try {
-    const records = await allMaisons();
-    console.log(JSON.stringify(records, null, 2));
+    const films = await allFilmsSortedByProjectionDate();
+    console.table(JSON.stringify(films, null, 2));
 } catch (e) {
     console.error(e);
 }
