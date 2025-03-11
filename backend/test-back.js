@@ -39,20 +39,23 @@
 
 
 // Infos d'une activité par ID
-import { getActivityById } from './backend.mjs';
-try {
-    const activity = await getActivityById('a9j2hb9p2yaq02u');
-    console.table(activity);
-} catch (e) {
-    console.error(e);
-}
-
+// import { getActivityById } from './backend.mjs';
 // try {
-//     const maisonsSurfaceOrPrice = await surfaceORprice(100, 100000);
-//     console.table(maisonsSurfaceOrPrice);
+//     const activity = await getActivityById('a9j2hb9p2yaq02u');
+//     console.table(activity);
 // } catch (e) {
 //     console.error(e);
 // }
+
+
+// Infos d'un acteur/réalisateur par ID
+import { getInviteById } from './backend.mjs';
+try {
+    const invite = await getInviteById('zy9n3t9j3uo870y');
+    console.table(invite);
+} catch (e) {
+    console.error(e);
+}
 
 // try {
 //     const agent = await agentById('43kpge23iv49tlr');
