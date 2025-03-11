@@ -19,20 +19,23 @@
 
 
 // Liste de tous les acteurs/réalisateurs triés par ordre alphabétique
-import { allActorsDirectorsSorted } from './backend.mjs';
-try {
-    const actorsDirectors = await allActorsDirectorsSorted();
-    console.table(actorsDirectors);
-} catch (e) {
-    console.error(e);
-}
-
+// import { allActorsDirectorsSorted } from './backend.mjs';
 // try {
-//     const maisonsSorted = await allMaisonsSorted();
-//     console.table(maisonsSorted);
+//     const actorsDirectors = await allActorsDirectorsSorted();
+//     console.table(actorsDirectors);
 // } catch (e) {
 //     console.error(e);
 // }
+
+
+// Infos d'un film par ID
+import { getFilmById } from './backend.mjs';
+try {
+    const film = await getFilmById('ul1mk6ngru02nwg');
+    console.table(film);
+} catch (e) {
+    console.error(e);
+}
 
 // try {
 //     const maisonsBySurface = await bySurface(100);
