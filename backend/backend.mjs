@@ -89,3 +89,17 @@ export async function deleteInviteById(id) {
     await pb.collection('Invites').delete(id);
 }
 
+// Modifier un film par ID
+export async function updateFilmById(id, data) {
+    await pb.collection('Films').update(id, data);
+}
+
+// Modifier une activité par ID
+export async function updateActivityById(id, data) {
+    await pb.collection('activite').update(id, data);
+}
+
+// Modifier un invité par ID
+export async function updateInviteById(id, data) {
+    await pb.collection('Invites').update(id, data);
+}

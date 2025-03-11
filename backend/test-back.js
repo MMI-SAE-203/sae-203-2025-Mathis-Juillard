@@ -159,6 +159,59 @@
 // }
 
 
+// Mettre à jour un film par ID
+// import { updateFilmById } from './backend.mjs';
+// try {
+//     const data = {
+//         "titre_film": "test",
+//         "synopsis_film": "test de synopsis",
+//         "duree_film": '1heure50',
+//         "list_acteur": 'test1,test2,test3',
+//         "realisateur": 'Monsieur test',
+//         "langue": 'Francais',
+//         "production": 'oui oui'
+//     };
+//     const filmId = '';
+//     await updateFilmById(filmId, data);
+//     console.log("Film mis à jour");
+// } catch (e) {
+//     console.error(e);
+// }
+
+
+
+// Mettre à jour une activité par ID
+// import { updateActivityById } from './backend.mjs';
+// try {
+//     const data = {
+//         "nom_activite": "Updated Activity",
+//         "description_activite": "Updated description",
+//     };
+//     const activityId = '';
+//     await updateActivityById(activityId, data);
+//     console.log("Activité mise à jour");
+// } catch (e) {
+//     console.error(e);
+// }
+
+
+// Mettre à jour un invité par ID
+// import { updateInviteById } from './backend.mjs';
+// try {
+//     const data = {
+//         "nom": "Updated Name",
+//         "prenom": "Updated First Name",
+//         "Biographie": "Updated Biography",
+//     };
+//     const inviteId = '';
+//     await updateInviteById(inviteId, data);
+//     console.log("Invité mis à jour");
+// } catch (e) {
+//     console.error(e);
+// }
+
+
+
 
 // // Authentification SuperUser
 // try {
@@ -167,14 +220,6 @@
 //     const auth = await superUserauth(login, mdp);
 //     console.log("SuperUser connecté");
 //     // superUserLogout();
-// } catch (e) {
-//     console.error(e);
-// }
-
-// // Récupération des événements
-// try {
-//     const events = await allEvenement();
-//     console.table(events);
 // } catch (e) {
 //     console.error(e);
 // }
