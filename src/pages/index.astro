@@ -1,10 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
+// import ChatImage from '../assets/chat.svg';
+// import PawIcon from '../assets/patechat.svg';
+// import FestivalImage from '../assets/chafestival-chat.jpg';
 ---
 
 <Layout>
-	<h1>Conservatoire Henri Dutilleux</h1>
-	<h2>Titre de niveau 2</h2>
-	<h3>Titre de niveau 3</h3>
-	<p>Texte standard</p>
+  <html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/path-to-tailwind.css" rel="stylesheet">
+  </head>
+  <body class="bg-[#87A5D8] text-gray-800">
+  
+    <main class="p-4">
+      <!-- Image du chat stylisé -->
+      <section class="flex flex-col items-center">
+        <!-- <img src={ChatImage} alt="Chat stylisé" class="w-40 h-auto" /> -->
+        <h1 class="text-center text-[#8B3A3A] text-2xl font-bold mt-4 underline">
+          Découvrez l’univers félin du cinéma !
+        </h1>
+        <p class="text-center text-sm mt-2 text-black font-semibold">
+          27 - 29 juin 2025 à Pontarlier.
+        </p>
+      </section>
+
+      <!-- Séparation avec pattes -->
+      <div class="flex justify-center mt-4">
+        <!-- <img src={PawIcon} alt="Patte" class="w-6 mx-2" />
+        <img src={PawIcon} alt="Patte" class="w-6 mx-2" /> -->
+      </div>
+
+      <!-- Texte de présentation -->
+      <section class="mt-6 p-4 bg-white rounded-lg shadow-md">
+        <p class="text-black text-justify">
+          Le Festival Miaullywood célèbre le lien entre le cinéma et la cause animale, 
+          en mettant à l’honneur nos compagnons félins à travers des projections, des ateliers et des 
+          expériences immersives. Profitez d’un moment de partage unique, que vous soyez passionné de 
+          cinéma ou amoureux des animaux !
+        </p>
+      </section>
+
+      <!-- Image du chat au cinéma -->
+      <section class="mt-6">
+        <!-- <img src={FestivalImage} alt="Chat au cinéma" class="rounded-lg shadow-lg w-full" /> -->
+      </section>
+
+      <!-- Séparation avec pattes -->
+      <div class="flex justify-center mt-4">
+        <!-- <img src={PawIcon} alt="Patte" class="w-6 mx-2" />
+        <img src={PawIcon} alt="Patte" class="w-6 mx-2" />
+        <img src={PawIcon} alt="Patte" class="w-6 mx-2" /> -->
+      </div>
+
+      <!-- Section Temps forts -->
+      <section class="mt-6">
+        <h2 class="text-center text-[#8B3A3A] text-xl font-bold">
+          Les temps forts du festival
+        </h2>
+      </section>
+    </main>
+
+  </body>
+  </html>
 </Layout>

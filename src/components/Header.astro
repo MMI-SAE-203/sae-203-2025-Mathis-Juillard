@@ -1,15 +1,16 @@
 ---
-import Logo from '../assets/icons/IconLogo.svg';
+const logoSrc = '/src/assets/logo3.svg';
+import Button from '../components/Button.astro';
 const currentPath = Astro.url.pathname;
 ---
-
-<header class="flex items-center justify-between px-4 gap-8 border-b-2 border-b-rose-200 h-20">
-  <!-- Logo -->
-  <a href="/">
-    <Logo class="h-12 w-12" />
+<header class="flex items-center justify-between px-4 gap-8 border-b-2 border-b-gray-200 h-20 bg-white">
+  <a href="/" class="flex items-center">
+    <img src={logoSrc} alt="Logo" class="w-12 h-12 mr-2" />
+    <div class="text-xl font-bold text-pink-600">
+      <span class="block">Festival</span>
+      <span class="block">Miaullywood</span>
+    </div>
   </a>
-
-  <!-- Bouton Menu Mobile -->
   <button
     id="menu-btn"
     class="group relative z-10 flex h-3 w-6 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-black *:transition *:duration-300"
@@ -20,23 +21,53 @@ const currentPath = Astro.url.pathname;
     <span class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"></span>
     <span class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"></span>
   </button>
-
-  <!-- Navigation -->
   <nav
     id="menu"
-    class="flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-rose-100 visible opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100"
+    class="flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-white visible opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100"
     aria-hidden="true"
   >
     <ul class="flex flex-col gap-4 lg:flex-row">
       <li>
-        <a class={`block p-4 rounded-lg text-gray-700 ${currentPath === '/' ? 'text-rose-600 font-bold max-lg:bg-rose-200 max-lg:rounded-lg' : ''}`} href="/">Accueil</a>
+        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/accueil">Accueil</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-gray-700" href="/programmation">Programmation</a>
+        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/program">Programme</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-gray-700" href="/infos">Infos Pratiques</a>
+        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/apropos">a propos</a>
+      </li>
+      <li>
+        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/film">Film</a>
+      </li>
+      <li>
+        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/invite">Invités</a>
+      </li>
+      <li>
+        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/contact">Contact/FAQ</a>
+      </li>
+      <li>
+        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/info">Info Pratique</a>
       </li>
     </ul>
+    <div class="flex items-center justify-center gap-4 px-4">
+      <Button variant="outlined" url="/login" text="Se connecter" />
+      <Button variant="dark" url="/signup" text="S'inscrire" />
+    </div>
   </nav>
 </header>
+
+<script>
+  const toggle = document.querySelector("#menu-btn");
+  const nav = document.querySelector("#menu");
+  const page = document.body;
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.ariaExpanded === "true";
+      const isClosed = !isOpen;
+      toggle.ariaExpanded = String(isClosed);
+      nav.ariaHidden = String(isOpen);
+      page.classList.toggle("noscroll", isClosed);
+    });
+  }
+</script>
