@@ -184,17 +184,25 @@ export async function getInvites() {
             sort: 'prenom',
         });
 
-        return invites.map((invite) => ({
-            ...invite,
-            imageUrl: invite.photo 
-                ? pb.files.getUrl(invite, invite.photo, { thumb: "1024x1024" }) 
-                : "/placeholder.svg",
-        }));
+        const updatedInvites = invites.map((invite) => {
+            const imageUrl = invite.photo_invites 
+                ? pb.files.getUrl(invite, invite.photo_invites) 
+                : "/placeholder.svg";
+
+            console.log(`Image URL pour ${invite.prenom} ${invite.nom}:`, imageUrl);
+
+            return { ...invite, imageUrl };
+        });
+
+        return updatedInvites;
     } catch (error) {
         console.error('Erreur lors de la récupération des invités:', error);
         return [];
     }
 }
+
+
+
 
 export async function getInviteById(id) {
     try {
