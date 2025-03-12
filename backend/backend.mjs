@@ -148,3 +148,68 @@ export async function getFilmById(id) {
         return null;
     }
 }
+
+
+export async function getActivities() {
+    try {
+        let activities = await pb.collection('activite').getFullList({
+            sort: 'date_heure_activite',
+        });
+
+        console.log("Activités récupérées :", activities);
+
+        return activities;
+    } catch (error) {
+        console.error('Erreur lors de la récupération des activités:', error);
+        return [];
+    }
+}
+
+export async function getActivityById(id) {
+    try {
+        let activity = await pb.collection('activite').getOne(id);
+
+        if (!activity) return null;
+
+        return activity;
+    } catch (error) {
+        console.error('Erreur lors de la récupération de l\'activité:', error);
+        return null;
+    }
+}
+
+export async function getInvites() {
+    try {
+        let invites = await pb.collection('Invites').getFullList({
+            sort: 'prenom',
+        });
+
+        return invites.map((invite) => ({
+            ...invite,
+            imageUrl: invite.photo 
+                ? pb.files.getUrl(invite, invite.photo, { thumb: "1024x1024" }) 
+                : "/placeholder.svg",
+        }));
+    } catch (error) {
+        console.error('Erreur lors de la récupération des invités:', error);
+        return [];
+    }
+}
+
+export async function getInviteById(id) {
+    try {
+        let invite = await pb.collection('Invites').getOne(id);
+
+        if (!invite) return null;
+
+        return {
+            ...invite,
+            imageUrl: invite.photo 
+                ? pb.files.getUrl(invite, invite.photo, { thumb: "1024x1024" }) 
+                : "/placeholder.svg",
+        };
+    } catch (error) {
+        console.error('Erreur lors de la récupération de l’invité:', error);
+        return null;
+    }
+}

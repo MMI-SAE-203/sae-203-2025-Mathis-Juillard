@@ -8,6 +8,8 @@ const film = await getFilmById(id);
 if (!film) {
     return Astro.redirect('/films');
 }
+
+const embedUrl = "https://www.youtube.com/embed/${film.trailer_film.split('v=')[1]}";
 ---
 
 <Layout>
@@ -44,9 +46,28 @@ if (!film) {
               <li><span class="font-medium">Acteurs :</span> {film.list_acteur}</li>
             </ul>
           </div>
+
+            <div class="mb-6">
+                <h2 class="text-lg font-semibold mb-2">Bande-annonce</h2>
+                {film.trailer_film ? (
+                <iframe 
+                width="560" 
+                height="315" 
+                src={embedUrl} 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen
+                ></iframe>
+                ) : (
+                    <p class="text-gray-700">Pas de bande-annonce disponible</p>
+                )}
+                <div class="relative h-0" style="padding-bottom: 56.25%">
+                </div>
           
           <div class="mt-6">
-            <a href="/films" class="inline-block bg-indigo-600 text-white py-2 px-6 rounded-md hover:bg-indigo-700 transition">
+            <a href="/films" class="inline-block bg-blue-400 text-white py-2 px-6 rounded-md hover:bg-indigo-700 transition">
               Retour aux films
             </a>
           </div>
