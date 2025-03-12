@@ -4,6 +4,10 @@ import Chat from '../assets/chat.avif';
 import pate from '../assets/patechat.svg'
 import chatcine from '../assets/chatcine.avif';
 import Carrousel from '../components/Carrousel.astro';
+import dehors from '../assets/dehors.avif';
+import partenaire from '../assets/partenaire1.avif';
+import partenaire2 from '../assets/partenaire2.avif';
+import partenaire3 from '../assets/partenaire3.avif';
 ---
 
 <Layout>
@@ -13,16 +17,16 @@ import Carrousel from '../components/Carrousel.astro';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/path-to-tailwind.css" rel="stylesheet">
   </head>
-  <body class="bg-[#87A5D8] text-gray-800">
+  <body class="text-gray-800">
   
     <main class="p-4">
       <!-- Image du chat stylisé -->
       <section class="flex flex-col items-center">
         <img src={Chat.src} alt="Chat stylisé" class="w-40 h-auto" />
-        <h1 class="text-center text-[#8B3A3A] text-2xl font-bold mt-4 underline">
+        <h1 class="font-sans text-center text-pink-100 text-2xl font-bold mt-4">
           Découvrez l’univers félin du cinéma !
         </h1>
-        <p class="text-center text-sm mt-2 text-black font-semibold">
+        <p class="font-mono text-center text-sm mt-2 text-black font-semibold">
           27 - 29 juin 2025 à Pontarlier.
         </p>
       </section>
@@ -35,8 +39,8 @@ import Carrousel from '../components/Carrousel.astro';
       </div>
 
       <!-- Texte de présentation -->
-      <section class="mt-6 p-4 bg-white rounded-lg shadow-md">
-        <p class="text-black text-justify">
+      <section class="font-mono mt-6 p-4">
+        <p>
           Le Festival Miaullywood célèbre le lien entre le cinéma et la cause animale, 
           en mettant à l’honneur nos compagnons félins à travers des projections, des ateliers et des 
           expériences immersives. Profitez d’un moment de partage unique, que vous soyez passionné de 
@@ -58,10 +62,36 @@ import Carrousel from '../components/Carrousel.astro';
 
       <!-- Section Temps forts -->
       <section class="mt-6">
-        <h2 class="text-center text-[#8B3A3A] text-xl font-bold">
+        <h2 class="font-sans text-center text-pink-100 text-xl font-bold">
           Les temps forts du festival
         </h2>
         <Carrousel />
+      </section>
+
+      <section class="font-sans mt-6 p-4">
+        <p>
+          Ne manquez pas les projections en plein air, les ateliers créatifs autour des chats et les conférences sur la protection animale, avec des films inédits pour toute la famille.
+        </p>
+        <img src = {dehors.src} alt="Projection en plein air" class="w-full h-auto mt-4" />
+        <img src = {pate.src} alt="pate" class="w-6 h-6" />
+        <img src = {pate.src} alt="pate" class="w-6 h-6" />
+        <img src = {pate.src} alt="pate" class="w-6 h-6" />
+      </section>
+
+      <section class="font-sans text-pink-100 mt-6">
+       <p>Nos partenaires</p>
+        <div class="flex justify-center gap-4 mt-4">
+          <img src={partenaire.src} alt="Partenaire 1" class="w-24 h-auto" />
+          <img src={partenaire2.src} alt="Partenaire 2" class="w-24 h-auto" />
+          <img src={partenaire3.src} alt="Partenaire 3" class="w-24 h-auto" />
+        </div>
+      </section>
+
+
+      <section class="font-sans mt-6">
+       <p>Achetez vos billets !</p>
+        <boutton class="bg-pink-500 text-white font-bold rounded-lg px-4 py-2 mt-4">
+          BILLETTERIE
       </section>
     </main>
 

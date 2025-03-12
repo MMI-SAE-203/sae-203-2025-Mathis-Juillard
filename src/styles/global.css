@@ -24,5 +24,10 @@
   ::selection {
     @apply bg-(--color-pink);
   }
+  body {
+    @apply bg-blue-400;
+  }
+
 }
+
 
