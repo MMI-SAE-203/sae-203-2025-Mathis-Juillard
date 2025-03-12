@@ -1,11 +1,12 @@
 ---
-const logoSrc = '/src/assets/logo3.svg';
 import Button from '../components/Button.astro';
 const currentPath = Astro.url.pathname;
+import logo from '../assets/logo3.svg';
+import patechat from '../assets/patechat.svg';
 ---
 <header class="flex items-center justify-between px-4 gap-8 border-b-2 border-b-gray-200 h-20 bg-white">
+  <img src = {logo.src} alt="Logo" class="w-12 h-12" />
   <a href="/" class="flex items-center">
-    <img src={logoSrc} alt="Logo" class="w-12 h-12 mr-2" />
     <div class="text-xl font-bold text-pink-600">
       <span class="block">Festival</span>
       <span class="block">Miaullywood</span>
@@ -21,32 +22,34 @@ const currentPath = Astro.url.pathname;
     <span class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"></span>
     <span class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"></span>
   </button>
-  <nav
-    id="menu"
-    class="flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-white visible opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100"
-    aria-hidden="true"
-  >
+  <nav 
+  id="menu"
+  class="font-sans flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-blue-400 transition-opacity duration-300 
+  opacity-0 invisible lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:opacity-100 lg:visible"
+  aria-hidden="true"
+>
+
     <ul class="flex flex-col gap-4 lg:flex-row">
       <li>
-        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/accueil">Accueil</a>
+        <a class="block p-4 rounded-lg text-rose-700 hover:text-pink-600" href="/accueil">Accueil</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/program">Programme</a>
+        <a class="block p-4 rounded-lg text-rose-700 hover:text-pink-600" href="/program">Programme</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/apropos">À Propos</a>
+        <a class="block p-4 rounded-lg text-rose-700 hover:text-pink-600" href="/apropos">À Propos</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/film">Film</a>
+        <a class="block p-4 rounded-lg text-rose-700 hover:text-pink-600" href="/film">Film</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/invite">Invités</a>
+        <a class="block p-4 rounded-lg text-rose-700 hover:text-pink-600" href="/invite">Invités</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/contact">Contact/FAQ</a>
+        <a class="block p-4 rounded-lg text-rose-700 hover:text-pink-600" href="/contact">Contact/FAQ</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-gray-500 hover:text-pink-600" href="/info">Info Pratique</a>
+        <a class="block p-4 rounded-lg text-rose-700 hover:text-pink-600" href="/info">Info Pratique</a>
       </li>
     </ul>
     <div class="flex items-center justify-center gap-4 px-4">
@@ -63,11 +66,20 @@ const currentPath = Astro.url.pathname;
 
   if (toggle && nav) {
     toggle.addEventListener("click", () => {
-      const isOpen = toggle.ariaExpanded === "true";
-      const isClosed = !isOpen;
-      toggle.ariaExpanded = String(isClosed);
-      nav.ariaHidden = String(isOpen);
-      page.classList.toggle("noscroll", isClosed);
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      nav.setAttribute("aria-hidden", String(isOpen));
+
+      // Ajout / Suppression des classes pour animation
+      if (isOpen) {
+        nav.classList.add("opacity-0", "invisible");
+      } else {
+        nav.classList.remove("opacity-0", "invisible");
+      }
+      
+      page.classList.toggle("noscroll", !isOpen);
     });
   }
 </script>
+

@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-// import ChatImage from '../assets/chat.svg';
-// import PawIcon from '../assets/patechat.svg';
-// import FestivalImage from '../assets/chafestival-chat.jpg';
+import Chat from '../assets/chat.avif';
+import pate from '../assets/patechat.svg'
+import chatcine from '../assets/chatcine.avif';
+import Carrousel from '../components/Carrousel.astro';
 ---
 
 <Layout>
@@ -17,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
     <main class="p-4">
       <!-- Image du chat stylisé -->
       <section class="flex flex-col items-center">
-        <!-- <img src={ChatImage} alt="Chat stylisé" class="w-40 h-auto" /> -->
+        <img src={Chat.src} alt="Chat stylisé" class="w-40 h-auto" />
         <h1 class="text-center text-[#8B3A3A] text-2xl font-bold mt-4 underline">
           Découvrez l’univers félin du cinéma !
         </h1>
@@ -28,8 +29,9 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- Séparation avec pattes -->
       <div class="flex justify-center mt-4">
-        <!-- <img src={PawIcon} alt="Patte" class="w-6 mx-2" />
-        <img src={PawIcon} alt="Patte" class="w-6 mx-2" /> -->
+        <img src = {pate.src} alt="pate" class="w-6 h-6" />
+        <img src = {pate.src} alt="pate" class="w-6 h-6" />
+
       </div>
 
       <!-- Texte de présentation -->
@@ -44,14 +46,14 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- Image du chat au cinéma -->
       <section class="mt-6">
-        <!-- <img src={FestivalImage} alt="Chat au cinéma" class="rounded-lg shadow-lg w-full" /> -->
+        <img src={chatcine.src} alt="Chat au cinéma" class="w-full h-auto" />
       </section>
 
       <!-- Séparation avec pattes -->
       <div class="flex justify-center mt-4">
-        <!-- <img src={PawIcon} alt="Patte" class="w-6 mx-2" />
-        <img src={PawIcon} alt="Patte" class="w-6 mx-2" />
-        <img src={PawIcon} alt="Patte" class="w-6 mx-2" /> -->
+        <img src = {pate.src} alt="pate" class="w-6 h-6" />
+        <img src = {pate.src} alt="pate" class="w-6 h-6" />
+        <img src = {pate.src} alt="pate" class="w-6 h-6" />
       </div>
 
       <!-- Section Temps forts -->
@@ -59,6 +61,7 @@ import Layout from '../layouts/Layout.astro';
         <h2 class="text-center text-[#8B3A3A] text-xl font-bold">
           Les temps forts du festival
         </h2>
+        <Carrousel />
       </section>
     </main>
 

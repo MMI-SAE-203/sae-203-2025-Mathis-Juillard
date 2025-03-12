@@ -1,70 +1,71 @@
 ---
-// import Logo from '../assets/icons/IconLogo.svg'
-// import Facebook from '../assets/icons/IconFacebook.svg'
-// import Instagram from '../assets/icons/IconInstagram.svg'
-// import Twitter from '../assets/icons/IconTwitter.svg'
-// import Youtube from '../assets/icons/IconYoutube.svg'
-// import Pate from '../assets/icons/IconPaw.svg'
-// import Chat from '../assets/icons/chatfooter.svg'
+import logo from '../assets/logo3.svg';
+import facebook from '../assets/facebook.svg'
+import instagram from '../assets/instagram.svg'
+import twitter from '../assets/twitter.svg'
+import youtube from '../assets/youtube.svg'
+import pate from '../assets/patechat.svg'
+import chatfooter from '../assets/chatfooter2.svg'
 ---
-<!-- <Chat></Chat> -->
-<footer class="bg-[#2D2926] text-white py-10 px-6">
-  <!-- Logo et Nom -->
-  <div class="flex items-center space-x-4">
-    <!-- <Logo class="w-12 h-12" /> -->
-    <h2 class="text-xl font-semibold text-[#E08FB5]">Festival Miaullywood</h2>
+
+<footer class="relative  text-white overflow-hidden flex flex-col gap-0">
+  <!-- Chat au-dessus du footer -->
+  <div class="w-full max-w-lg z-20">
+    <img src={chatfooter.src} alt="Chat Miaullywood" class="w-full"  />
   </div>
 
-  <!-- Séparateur avec pattes -->
-  <div class="flex justify-center my-4">
-    <!-- <PawIcon class="w-6 mx-2 text-[#E08FB5]" />
-    <PawIcon class="w-6 mx-2 text-[#E08FB5]" /> -->
-  </div>
-
-  <!-- Menu -->
-  <nav class="text-sm text-white text-center">
-    <h3 class="text-lg font-bold mb-2">Menu</h3>
-    <ul class="space-y-2">
-      <li><a href="/mentions-legales" class="hover:text-[#E08FB5]">MENTIONS LÉGALES</a></li>
-      <li><a href="/contacts" class="hover:text-[#E08FB5]">CONTACTS & ACCÈS</a></li>
-    </ul>
-  </nav>
-
-  <!-- Mentions légales -->
-  <p class="text-xs text-gray-400 text-center mt-6">
-    © 2024 Lionimation Festival - Tous droits réservés  
-    <br />
-    <a href="/mentions-legales" class="hover:text-[#E08FB5]">[Mentions légales]</a> | 
-    <a href="/confidentialite" class="hover:text-[#E08FB5]">[Politique de confidentialité]</a> | 
-    <a href="/conditions" class="hover:text-[#E08FB5]">[Conditions générales]</a>
-  </p>
-
-  <!-- Séparateur avec pattes -->
-  <div class="flex justify-center my-4">
-    <!-- <PawIcon class="w-6 mx-2 text-[#E08FB5]" />
-    <PawIcon class="w-6 mx-2 text-[#E08FB5]" />
-    <PawIcon class="w-6 mx-2 text-[#E08FB5]" /> -->
-  </div>
-
-  <!-- Contact -->
-  <div class="text-center">
-    <h3 class="text-lg font-bold">Contact</h3>
-    <p class="text-sm mt-2">
-      Cinéma Olympia-Pontarlier  
-      <br />2 Rue Louis Pergaud  
-      <br />03 84 54 27 27  
-      <br /><a href="mailto:miaullywood@gmail.com" class="hover:text-[#E08FB5]">miaullywood@gmail.com</a>
-    </p>
-  </div>
-
-  <!-- Réseaux sociaux -->
-  <div class="text-center mt-6">
-    <h3 class="text-lg font-bold">Nous suivre</h3>
-    <div class="flex justify-center space-x-6 mt-2">
-      <!-- <a href="https://instagram.com" aria-label="Instagram" class="hover:text-[#E08FB5]"><Instagram class="w-6 h-6" /></a> -->
-      <!-- <a href="https://facebook.com" aria-label="Facebook" class="hover:text-[#E08FB5]"><Facebook class="w-6 h-6" /></a> -->
-      <!-- <a href="https://twitter.com" aria-label="Twitter" class="hover:text-[#E08FB5]"><Twitter class="w-6 h-6" /></a> -->
-      <!-- <a href="https://youtube.com" aria-label="Youtube" class="hover:text-[#E08FB5]"><Youtube class="w-6 h-6" /></a> -->
+  <!-- Contenu du footer -->
+  <div class="relative z-10 bg-[#2D2926]">
+    <div class="flex items-center">
+      <img src={logo.src} alt="Logo" class="w-12 h-12" />
+      <h2 class="text-xl font-semibold text-[#E08FB5]">Festival Miaullywood</h2>
     </div>
+
+    <nav class="text-sm text-white text-center mb-6">
+      <h3 class="text-lg font-bold mb-2">Menu</h3>
+      <ul class="space-y-2">
+        <li><a href="/mentions-legales" class="hover:text-[#E08FB5]">MENTIONS LÉGALES</a></li>
+        <li><a href="/contacts" class="hover:text-[#E08FB5]">CONTACTS & ACCÈS</a></li>
+      </ul>
+    </nav>
+
+    <p class="text-xs text-gray-400 text-center mb-6">
+      © 2024 Lionimation Festival - Tous droits réservés  
+      <br />
+      <a href="/mentions-legales" class="hover:text-[#E08FB5]">Mentions légales</a> | 
+      <a href="/confidentialite" class="hover:text-[#E08FB5]">Politique de confidentialité</a> | 
+      <a href="/conditions" class="hover:text-[#E08FB5]">Conditions générales</a>
+    </p>
+
+    <div class="text-center mb-6">
+      <h3 class="text-lg font-bold">Contact</h3>
+      <p class="text-sm mt-2">
+        Cinéma Olympia-Pontarlier  
+        <br />2 Rue Louis Pergaud  
+        <br />03 84 54 27 27  
+        <br /><a href="mailto:miaullywood@gmail.com" class="hover:text-[#E08FB5]">miaullywood@gmail.com</a>
+      </p>
+    </div>
+
+    <div class="text-center mb-6">
+      <h3 class="text-lg font-bold">Nous suivre</h3>
+      <div class="flex justify-center space-x-6 mt-2">
+        <img src={instagram.src} alt="Instagram" class="w-6 h-6" />
+        <img src={facebook.src} alt="Facebook" class="w-6 h-6" />
+        <img src={twitter.src} alt="Twitter" class="w-6 h-6" />
+        <img src={youtube.src} alt="YouTube" class="w-6 h-6" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Pattes de chat en décoration -->
+  <div class="absolute bottom-10 left-10">
+    <img src={pate.src} alt="Patte de chat" class="w-6 h-6" />
+  </div>
+  <div class="absolute bottom-5 right-10">
+    <img src={pate.src} alt="Patte de chat" class="w-8 h-8" />
+  </div>
+  <div class="absolute top-1/2 left-1/4">
+    <img src={pate.src} alt="Patte de chat" class="w-10 h-10" />
   </div>
 </footer>
