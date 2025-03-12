@@ -1,0 +1,51 @@
+---
+import { getActivities } from '../../../backend/backend.mjs';
+import Layout from '../../layouts/Layout.astro';
+
+const { id } = Astro.params;
+const activities = await getActivities();
+const activity = activities.find(act => act.id === id);
+
+if (!activity) {
+    return Astro.redirect('/activites');
+}
+---
+
+<Layout>
+  <div class="bg-gray-100 min-h-screen flex items-center justify-center py-10">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl w-full">
+      <div class="md:flex">
+        <div class="md:w-1/3">
+          <img 
+            src={activity.imageUrl || "/placeholder.jpg"} 
+            alt={`Image de ${activity.nom_activite}`} 
+            class="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div class="md:w-2/3 p-6">
+          <h1 class="text-3xl font-bold text-gray-800 mb-2">{activity.nom_activite}</h1>
+          <p class="text-sm text-gray-500 mb-4"><strong>Date :</strong> {new Date(activity.date_heure_activite).toLocaleString()}</p>
+          
+          <div class="mb-6">
+            <h2 class="text-lg font-semibold mb-2">Description</h2>
+            <p class="text-gray-700" set:html={activity.description_activite || "Aucune description disponible."}></p>
+          </div>
+
+          {activity.invite && (
+            <div class="mt-4">
+              <h2 class="text-lg font-semibold">Invité associé</h2>
+              <p class="text-gray-800">{activity.invite.prenom} {activity.invite.nom}</p>
+            </div>
+          )}
+
+          <div class="mt-6">
+            <a href="/activite" class="inline-block bg-indigo-600 text-white py-2 px-6 rounded-md hover:bg-indigo-700 transition">
+              Retour aux activités
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

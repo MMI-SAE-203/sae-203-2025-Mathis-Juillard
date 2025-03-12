@@ -154,16 +154,29 @@ export async function getActivities() {
     try {
         let activities = await pb.collection('activite').getFullList({
             sort: 'date_heure_activite',
+            expand: 'invite_associe' // Récupérer les détails de l'invité associé
         });
 
-        console.log("Activités récupérées :", activities);
+        const updatedActivities = activities.map(activity => {
+            const imageUrl = activity.image_activite 
+                ? pb.files.getUrl(activity, activity.image_activite)
+                : "/placeholder.svg";
 
-        return activities;
+            return { 
+                ...activity, 
+                imageUrl,
+                invite: activity.expand?.invite_associe || null // Inclure l'invité associé
+            };
+        });
+
+        console.log("Activités mises à jour :", updatedActivities);
+        return updatedActivities;
     } catch (error) {
         console.error('Erreur lors de la récupération des activités:', error);
         return [];
     }
 }
+
 
 export async function getActivityById(id) {
     try {
