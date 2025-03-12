@@ -111,12 +111,16 @@ export async function getFilms() {
             sort: 'date_heure_publication',
         });
 
-        const updatedFilms = films.map((films) => ({
-            ...films,
-            imageUrl: film.image 
-                ? pb.files.getUrl(films, films.affiche_film, { thumb: "1024x1024" }) 
-                : null,
+        console.log("Films récupérés :", films);
+
+        const updatedFilms = films.map((film) => ({
+            ...film,
+            imageUrl: film.affiche_film 
+                ? pb.files.getUrl(film, film.affiche_film, { thumb: "1024x1024" }) 
+                : "/placeholder.svg",
         }));
+
+        console.log("Films après transformation :", updatedFilms);
 
         return updatedFilms;
     } catch (error) {
@@ -125,3 +129,22 @@ export async function getFilms() {
     }
 }
 
+
+
+export async function getFilmById(id) {
+    try {
+        let film = await pb.collection('Films').getOne(id);
+
+        if (!film) return null;
+
+        return {
+            ...film,
+            imageUrl: film.affiche_film 
+                ? pb.files.getUrl(film, film.affiche_film, { thumb: "1024x1024" }) 
+                : "/placeholder.svg",
+        };
+    } catch (error) {
+        console.error('Erreur lors de la récupération du film:', error);
+        return null;
+    }
+}
