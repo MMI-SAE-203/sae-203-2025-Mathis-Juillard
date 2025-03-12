@@ -20,26 +20,22 @@ import partenaire3 from '../assets/partenaire3.avif';
   <body class="text-gray-800">
   
     <main class="p-4">
-      <!-- Image du chat stylisé -->
       <section class="flex flex-col items-center">
         <img src={Chat.src} alt="Chat stylisé" class="w-40 h-auto" />
-        <h1 class="font-sans text-center text-pink-100 text-2xl font-bold mt-4">
+        <h1 class=" text-3xl font-sans text-center text-pink-100 font-bold mt-4">
           Découvrez l’univers félin du cinéma !
         </h1>
-        <p class="font-mono text-center text-sm mt-2 text-black font-semibold">
+        <p class="font-mono text-center text-sm mt-2 text-black font-semibold bg-pink-100 w-full">
           27 - 29 juin 2025 à Pontarlier.
         </p>
       </section>
 
-      <!-- Séparation avec pattes -->
-      <div class="flex justify-center mt-4">
-        <img src = {pate.src} alt="pate" class="w-6 h-6" />
-        <img src = {pate.src} alt="pate" class="w-6 h-6" />
-
+      <div class="flex justify-center mt-4 w-full">
+        <img src={pate.src} alt="pate" class="w-20 h-16 mx-2 rotate-45" />
+        <img src={pate.src} alt="pate" class="w-20 h-16 mx-2 rotate-300" />
       </div>
 
-      <!-- Texte de présentation -->
-      <section class="font-mono mt-6 p-4">
+      <section class="font-mono mt-6">
         <p>
           Le Festival Miaullywood célèbre le lien entre le cinéma et la cause animale, 
           en mettant à l’honneur nos compagnons félins à travers des projections, des ateliers et des 
@@ -48,51 +44,53 @@ import partenaire3 from '../assets/partenaire3.avif';
         </p>
       </section>
 
-      <!-- Image du chat au cinéma -->
       <section class="mt-6">
-        <img src={chatcine.src} alt="Chat au cinéma" class="w-full h-auto" />
+        <img src={chatcine.src} alt="Chat au cinéma" class="w-1/2 h-auto mx-auto" />
       </section>
 
-      <!-- Séparation avec pattes -->
       <div class="flex justify-center mt-4">
-        <img src = {pate.src} alt="pate" class="w-6 h-6" />
-        <img src = {pate.src} alt="pate" class="w-6 h-6" />
-        <img src = {pate.src} alt="pate" class="w-6 h-6" />
+        <img src = {pate.src} alt="pate" class="w-20 h-16 mx-2" />
+        <img src = {pate.src} alt="pate" class="w-20 h-16 mx-2" />
+        <img src = {pate.src} alt="pate" class="ww-20 h-16 mx-2" />
       </div>
 
-      <!-- Section Temps forts -->
       <section class="mt-6">
-        <h2 class="font-sans text-center text-pink-100 text-xl font-bold">
+        <h2 class="font-sans text-center text-pink-100 text-xl font-bold pb-10">
           Les temps forts du festival
         </h2>
-        <Carrousel />
+        <Carrousel/>
       </section>
 
-      <section class="font-sans mt-6 p-4">
+      <section class="font-sans p-4 mt-15">
         <p>
           Ne manquez pas les projections en plein air, les ateliers créatifs autour des chats et les conférences sur la protection animale, avec des films inédits pour toute la famille.
         </p>
-        <img src = {dehors.src} alt="Projection en plein air" class="w-full h-auto mt-4" />
-        <img src = {pate.src} alt="pate" class="w-6 h-6" />
-        <img src = {pate.src} alt="pate" class="w-6 h-6" />
-        <img src = {pate.src} alt="pate" class="w-6 h-6" />
-      </section>
-
-      <section class="font-sans text-pink-100 mt-6">
-       <p>Nos partenaires</p>
-        <div class="flex justify-center gap-4 mt-4">
-          <img src={partenaire.src} alt="Partenaire 1" class="w-24 h-auto" />
-          <img src={partenaire2.src} alt="Partenaire 2" class="w-24 h-auto" />
-          <img src={partenaire3.src} alt="Partenaire 3" class="w-24 h-auto" />
+        <div class="flex justify-center mt-4">
+          <img src={dehors.src} alt="Projection en plein air" class="w-1/2 h-auto mx-auto" />
         </div>
-      </section>
+        <div class="flex justify-center mt-4">
+          <img src={pate.src} alt="pate" class="w-20 h-16 mx-2" />
+          <img src={pate.src} alt="pate" class="w-20 h-16 mx-2" />
+            <img src={pate.src} alt="pate" class="w-20 h-16 mx-2" />
+          </div>
+          </section>
+
+          <section class="font-sans text-pink-100 mt-6">
+           <p class="text-center mb-10 text-2xl">Nos partenaires</p>
+            <div class="flex flex-wrap justify-center gap-4 mt-4 mb-10">
+            <img src={partenaire.src} alt="Partenaire 1" class="w-24 sm:w-32 md:w-40 h-auto" />
+            <img src={partenaire2.src} alt="Partenaire 2" class="w-24 sm:w-32 md:w-40 h-auto" />
+            <img src={partenaire3.src} alt="Partenaire 3" class="w-24 sm:w-32 md:w-40 h-auto" />
+            </div>
+          </section>
 
 
-      <section class="font-sans mt-6">
-       <p>Achetez vos billets !</p>
-        <boutton class="bg-pink-500 text-white font-bold rounded-lg px-4 py-2 mt-4">
-          BILLETTERIE
-      </section>
+            <section class="font-sans mt-6 text-center">
+            <p class="mb-4 text-2xl mb-10">Achetez vos billets !</p>
+            <button class="bg-pink-500 text-white font-bold rounded-lg px-4 py-2 mt-2">
+              BILLETTERIE
+            </button>
+            </section>
     </main>
 
   </body>

@@ -9,12 +9,10 @@ import chatfooter from '../assets/chatfooter2.svg'
 ---
 
 <footer class="relative  text-white overflow-hidden flex flex-col gap-0">
-  <!-- Chat au-dessus du footer -->
-  <div class="w-full max-w-lg z-20">
-    <img src={chatfooter.src} alt="Chat Miaullywood" class="w-full"  />
+  <div class="w-full max-w-lg z-20 justify-center mx-auto">
+    <img src={chatfooter.src} alt="Chat Miaullywood" class="w-full relative justify-center" />
   </div>
 
-  <!-- Contenu du footer -->
   <div class="relative z-10 bg-[#2D2926]">
     <div class="flex items-center">
       <img src={logo.src} alt="Logo" class="w-12 h-12" />
@@ -58,7 +56,6 @@ import chatfooter from '../assets/chatfooter2.svg'
     </div>
   </div>
 
-  <!-- Pattes de chat en décoration -->
   <div class="absolute bottom-10 left-10">
     <img src={pate.src} alt="Patte de chat" class="w-6 h-6" />
   </div>

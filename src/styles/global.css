@@ -30,4 +30,6 @@
 
 }
 
-
+.noscroll {
+  overflow: hidden;
+}

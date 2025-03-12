@@ -103,3 +103,24 @@ export async function updateActivityById(id, data) {
 export async function updateInviteById(id, data) {
     await pb.collection('Invites').update(id, data);
 }
+
+// Liste de tous les films avec leurs images
+export async function getFilms() {
+    try {
+        const films = await pb.collection('Films').getFullList({
+            sort: 'date_heure_publication',
+        });
+        // Ajoute l'URL complète de l'image à chaque film
+        const updatedFilms = films.map((film) => ({
+            ...film,
+            imageUrl: film.image
+                ? pb.files.getUrl(film, film.image, { thumb: "1024x1024" })
+                : null,
+        }));
+        return updatedFilms;
+    } catch (error) {
+        console.error('Erreur lors de la récupération des films:', error);
+        return []; // Retourne un tableau vide en cas d'erreur
+    }
+}
+
