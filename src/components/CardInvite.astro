@@ -7,13 +7,14 @@ const { ...invite } = Astro.props;
     <div class="w-full h-[12em] overflow-hidden rounded-t-[1.3em] flex justify-center items-center">
         <img 
             src={invite.imageUrl} 
-            alt={invite.nom_invite} 
+            alt={invite.nom} 
             class="w-full h-full object-contain"
         />
     </div>
 
     <h1 class="text-[1.2em] font-medium text-center mt-2 px-2">
-        {invite.nom_invite}
+        {invite.nom}
+        {invite.prenom}
     </h1>
 
     <p class="text-center text-sm px-2">{invite.profession}</p>
