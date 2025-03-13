@@ -2,9 +2,16 @@
 const currentPath = Astro.url.pathname;
 import logo from '../assets/logo3.svg';
 ---
-<header class="top-0 left-0 w-full flex items-center justify-between px-4 gap-8 border-b-2 border-b-gray-200 h-20 bg-white z-10">
-  <img src = {logo.src} alt="Logo" class="w-12 h-12" />
-  <a href="/" class="flex items-center">
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Festival Miaullywood</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    
+<header class="top-0 left-0 w-full sticky flex items-center justify-between px-4 gap-8 border-b-2 border-b-gray-200 h-20 bg-white z-10">
+  <a href="/" class="flex items-center gap-2">
+    <img src={logo.src} alt="Logo" class="w-12 h-12" />
     <div class="text-xl font-bold text-pink-600">
       <span class="block">Festival</span>
       <span class="block">Miaullywood</span>
