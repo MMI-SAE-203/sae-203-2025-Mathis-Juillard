@@ -1,9 +1,8 @@
 ---
-import Button from '../components/Button.astro';
 const currentPath = Astro.url.pathname;
 import logo from '../assets/logo3.svg';
 ---
-<header class="top-0 left-0 w-full flex items-center justify-between px-4 gap-8 border-b-2 border-b-gray-200 h-20 bg-white">
+<header class="top-0 left-0 w-full flex items-center justify-between px-4 gap-8 border-b-2 border-b-gray-200 h-20 bg-white z-10">
   <img src = {logo.src} alt="Logo" class="w-12 h-12" />
   <a href="/" class="flex items-center">
     <div class="text-xl font-bold text-pink-600">
