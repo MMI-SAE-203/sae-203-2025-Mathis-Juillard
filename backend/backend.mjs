@@ -1,6 +1,6 @@
 import PocketBase from 'pocketbase'; 
 
-const pb = new PocketBase('http://127.0.0.1:8090');
+const pb = new PocketBase("https://pb-sae-203.mathis-juillard.fr:443");
 
 // Liste de tous les films triés par date de projection
 export async function allFilmsSortedByProjectionDate() {
@@ -24,24 +24,6 @@ export async function allActorsDirectorsSorted() {
         sort: 'prenom',
     });
     return invites;
-}
-
-// Infos d'un film par ID
-export async function getFilmById(id) {
-    const film = await pb.collection('Films').getOne(id);
-    return film;
-}
-
-// Infos d'une activité par ID
-export async function getActivityById(id) {
-    const activity = await pb.collection('activite').getOne(id);
-    return activity;
-}
-
-// Infos d'un acteur/réalisateur par ID
-export async function getInviteById(id) {
-    const invite = await pb.collection('Invites').getOne(id);
-    return invite;
 }
 
 // Liste des activités d’un animateur par ID
