@@ -240,7 +240,7 @@ export async function getInvitesByRole(role) {
     try {
         let invites = await pb.collection('Invites').getFullList({
             sort: 'prenom',
-            filter: `role="${role}"`, // Filtrage par rôle
+            filter: `Role="${role}"`, // Filtrage par rôle
         });
 
         const updatedInvites = invites.map((invite) => {

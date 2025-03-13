@@ -4,18 +4,97 @@ import CardInvite from '../../components/CardInvite.astro';
 import { getInvites } from '../../../backend/backend.mjs';
 
 const invites = await getInvites();
-console.log("Données des invités:", invites);
 ---
-
 
 <Layout titre="Invités">
     <div class="container mx-auto px-4 mb-10 flex flex-col items-center">
         <h1 class="text-5xl font-sans text-center mb-8 uppercase">Nos Invités</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
-            {invites && invites.map((invite) => (
+
+        <!-- Filtrage par rôle avec Alpine.js -->
+        <div class="w-[300px] px-4 py-5 bg-white flex flex-col gap-3 rounded-md shadow-[0px_0px_15px_rgba(0,0,0,0.09)]" x-data="{ selectedRole: '' }">
+          <legend class="text-xl font-semibold mb-3 select-none">Choisir un rôle</legend>
+          
+          <!-- Option Tous -->
+          <label for="tous" class="font-medium h-14 relative hover:bg-zinc-100 flex items-center px-3 gap-3 rounded-lg select-none">
+            <div class="w-5">
+              <!-- Icône Tous -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zM12 18c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6z"></path>
+              </svg>
+            </div>
+            Tous
+            <input
+              type="radio"
+              name="role"
+              class="w-4 h-4 absolute accent-blue-500 right-3"
+              id="tous"
+              x-model="selectedRole"
+              value=""
+            />
+          </label>
+          
+          <label for="animateur" class="font-medium h-14 relative hover:bg-zinc-100 flex items-center px-3 gap-3 rounded-lg select-none">
+            <div class="w-5 fill-blue-500">
+              <!-- Icône animateur -->
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" viewBox="0 0 512 512">
+                <path d="M256 8c-137 0-248 111-248 248s111 248 248 248 248-111 248-248-111-248-248-248zM256 464c-107 0-194-87-194-194s87-194 194-194 194 87 194 194-87 194-194 194z"></path>
+              </svg>
+            </div>
+            Animateur
+            <input
+              type="radio"
+              name="role"
+              class="w-4 h-4 absolute accent-blue-500 right-3"
+              id="animateur"
+              x-model="selectedRole"
+              value="animateur"
+            />
+          </label>
+          
+          <label for="realisateur" class="font-medium h-14 relative hover:bg-zinc-100 flex items-center px-3 gap-3 rounded-lg select-none">
+            <div class="w-5">
+              <!-- Icône réalisateur -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 5h-14c-1.104 0-1.995.897-1.995 2l-.005 12c0 1.103.895 2 1.995 2h14c1.104 0 1.995-.897 1.995-2v-12c0-1.103-.895-2-1.995-2zM19 19h-14v-12h14v12zM7 15h10v2h-10zm0-4h10v2h-10z"></path>
+              </svg>
+            </div>
+            Réalisateur
+            <input
+              type="radio"
+              name="role"
+              class="w-4 h-4 absolute accent-blue-500 right-3"
+              id="realisateur"
+              x-model="selectedRole"
+              value="realisateur"
+            />
+          </label>
+          
+          <label for="acteur" class="font-medium h-14 relative hover:bg-zinc-100 flex items-center px-3 gap-3 rounded-lg select-none">
+            <div class="w-5">
+              <!-- Icône acteur -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zM12 18c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6z"></path>
+              </svg>
+            </div>
+            Acteur
+            <input
+              type="radio"
+              name="role"
+              class="w-4 h-4 absolute accent-blue-500 right-3"
+              id="acteur"
+              x-model="selectedRole"
+              value="acteur"
+            />
+          </label>
+        </div>
+
+        <!-- Grille des invités filtrés -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center" x-data>
+          {invites.map((invite) => (
+              <div x-show="!$parent.selectedRole || $parent.selectedRole === '{invite.Role}'">
                 <CardInvite {...invite} />
-            ))}
+              </div>
+          ))}
         </div>
     </div>
 </Layout>
-
