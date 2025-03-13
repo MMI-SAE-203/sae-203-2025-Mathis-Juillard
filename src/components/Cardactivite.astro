@@ -2,18 +2,20 @@
 const { ...activity } = Astro.props;
 ---
 
-<div class="border-2 border-gray-300 rounded-lg bg-white text-gray-800 font-nunito p-4 flex flex-col items-center transition-all duration-300 ease-in-out shadow-md">
+<div class="border-2 border-gray-300 rounded-lg bg-white text-gray-800 font-nunito p-4 flex flex-col items-center transition-all duration-300 ease-in-out shadow-md w-[14em] h-[20em]">
     
-    <img 
-        src={activity.imageUrl} 
-        alt={`Image de l'activité ${activity.nom_activite}`} 
-        class="object-cover w-full h-40 rounded-t-lg"
-    />
+    <div class="w-full h-[12em] overflow-hidden rounded-t-lg flex justify-center items-center">
+        <img 
+            src={activity.imageUrl} 
+            alt={`Image de l'activité ${activity.nom_activite}`} 
+            class="w-full h-full object-contain"
+        />
+    </div>
 
-    <div class="text-center mt-3">
-        <h1 class="text-xl font-semibold">{activity.nom_activite}</h1>
+    <div class="text-center mt-3 px-2">
+        <h1 class="text-[1.2em] font-semibold">{activity.nom_activite}</h1>
         <p class="text-gray-500 text-sm">{new Date(activity.date_heure_activite).toLocaleString()}</p>
     </div>
 
-    <a href={`/activite/${activity.id}`} class="text-blue-600 underline mt-2">Voir plus</a>
+    <a href={`/activite/${activity.id}`} class="text-blue-600 underline mt-auto mb-2">Voir plus</a>
 </div>

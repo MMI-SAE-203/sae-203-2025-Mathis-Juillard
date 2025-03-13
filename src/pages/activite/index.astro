@@ -8,14 +8,13 @@ console.log("Données des activités:", activities);
 ---
 
 <Layout titre="Activités">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 mb-10  flex flex-col items-center ">
         <h1 class="text-5xl font-sans text-center mb-8 uppercase">Nos Activités</h1>
-        <div 
-            x-bind:class="view === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6' : 'flex flex-col space-y-4 w-full max-w-3xl'"
-            class="w-full">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
             {activities && activities.map((activity) => (
                 <CardActivite {...activity} />
             ))}
         </div>
     </div>
 </Layout>
+
