@@ -1,7 +1,7 @@
 import { e as createComponent, f as createAstro, i as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, u as unescapeHTML } from '../../chunks/astro/server_DDD3AwPw.mjs';
 import 'kleur/colors';
-import { a as getFilmById } from '../../chunks/backend_Dny1jRj-.mjs';
-import { $ as $$Layout } from '../../chunks/Layout_Dr2rNooM.mjs';
+import { a as getFilmById } from '../../chunks/backend_B55VZrsM.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_B5KAWsMa.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro();

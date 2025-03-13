@@ -1,6 +1,6 @@
 import { e as createComponent, i as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_DDD3AwPw.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_Dr2rNooM.mjs';
+import { $ as $$Layout } from '../chunks/Layout_B5KAWsMa.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Contact = createComponent(($$result, $$props, $$slots) => {

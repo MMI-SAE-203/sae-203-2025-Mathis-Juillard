@@ -112,7 +112,7 @@ export async function getFilms() {
 }
 
 
-
+// Récupérer un film par ID
 export async function getFilmById(id) {
     try {
         let film = await pb.collection('Films').getOne(id);
@@ -131,7 +131,7 @@ export async function getFilmById(id) {
     }
 }
 
-
+// Récupérer les activités avec les détails des invités associés
 export async function getActivities() {
     try {
         let activities = await pb.collection('activite').getFullList({
@@ -159,7 +159,7 @@ export async function getActivities() {
     }
 }
 
-
+// Récupérer une activité par ID
 export async function getActivityById(id) {
     try {
         let activity = await pb.collection('activite').getOne(id);
@@ -173,6 +173,7 @@ export async function getActivityById(id) {
     }
 }
 
+// Récupérer les activités par type
 export async function getInvites() {
     try {
         let invites = await pb.collection('Invites').getFullList({
@@ -198,7 +199,7 @@ export async function getInvites() {
 
 
 
-
+// Récupérer un invité par ID
 export async function getInviteById(id) {
     try {
         let invite = await pb.collection('Invites').getOne(id);
@@ -217,12 +218,13 @@ export async function getInviteById(id) {
     }
 }
 
-
+// Récupérer les invités par rôle
 export async function getInvitesByRole(role) {
     try {
         let invites = await pb.collection('Invites').getFullList({
             sort: 'prenom',
-            filter: `Role="${role}"`, // Filtrage par rôle
+            filter: `Role="${role}"`, // Assurez-vous que le nom du champ "role" est correct
+            expand: 'Role' // Si role est une relation, il faut l'étendre
         });
 
         const updatedInvites = invites.map((invite) => {

@@ -1,95 +1,109 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CardInvite from '../../components/CardInvite.astro';
-import { getInvites } from '../../../backend/backend.mjs';
+import { getInvites, getInvitesByRole } from '../../../backend/backend.mjs';
 
-const invites = await getInvites();
+// Récupérer le rôle depuis les paramètres de requête
+const { Role } = Astro.url.searchParams;
+const selectedRole = Role || '';
 
-// Définir l'état pour le rôle sélectionné
-let selectedRole = '';
-
-// Filtrer les invités en fonction du rôle sélectionné
-const filteredInvites = selectedRole
-    ? invites.filter(invite => invite.Role === selectedRole)
-    : invites;
+// Récupérer les invités en fonction du rôle sélectionné
+let invites = [];
+if (selectedRole) {
+  invites = await getInvitesByRole(selectedRole);
+} else {
+  invites = await getInvites();
+}
 ---
 
 <Layout titre="Invités">
-    <div class="container mx-auto px-4 mb-10 flex flex-col items-center">
+    <div class="container mx-auto px-4 mb-10 flex flex-col items-center mt-15">
         <h1 class="text-5xl font-sans text-center mb-8 uppercase">Nos Invités</h1>
 
-        <!-- Filtrage par rôle -->
-        <div
-          class="w-[300px] px-4 py-5 bg-white flex flex-col gap-3 rounded-md shadow-[0px_0px_15px_rgba(0,0,0,0.09)]"
-        >
-          <legend class="text-xl font-semibold mb-3 select-none">Choisir un rôle</legend>
-          
-          <label
-            for="animateur"
-            class="font-medium h-14 relative hover:bg-zinc-100 flex items-center px-3 gap-3 rounded-lg has-[:checked]:text-blue-500 has-[:checked]:bg-blue-50 has-[:checked]:ring-blue-300 has-[:checked]:ring-1 select-none"
-          >
-            <div class="w-5 fill-blue-500">
-              <!-- Icône animateur -->
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" viewBox="0 0 512 512">
-                <path d="M256 8c-137 0-248 111-248 248s111 248 248 248 248-111 248-248-111-248-248-248zM256 464c-107 0-194-87-194-194s87-194 194-194 194 87 194 194-87 194-194 194z"></path>
-              </svg>
-            </div>
-            Animateur
-            <input
-              type="radio"
-              name="role"
-              class="w-4 h-4 absolute accent-blue-500 right-3"
-              id="animateur"
-              onClick={() => selectedRole = 'animateur'}
-            />
-          </label>
-          
-          <label
-            for="realisateur"
-            class="font-medium h-14 relative hover:bg-zinc-100 flex items-center px-3 gap-3 rounded-lg has-[:checked]:text-blue-500 has-[:checked]:bg-blue-50 has-[:checked]:ring-blue-300 has-[:checked]:ring-1 select-none"
-          >
-            <div class="w-5">
-              <!-- Icône réalisateur -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 5h-14c-1.104 0-1.995.897-1.995 2l-.005 12c0 1.103.895 2 1.995 2h14c1.104 0 1.995-.897 1.995-2v-12c0-1.103-.895-2-1.995-2zM19 19h-14v-12h14v12zM7 15h10v2h-10zm0-4h10v2h-10z"></path>
-              </svg>
-            </div>
-            Réalisateur
-            <input
-              type="radio"
-              name="role"
-              class="w-4 h-4 absolute accent-blue-500 right-3"
-              id="realisateur"
-              onClick={() => selectedRole = 'realisateur'}
-            />
-          </label>
-          
-          <label
-            for="acteur"
-            class="font-medium h-14 relative hover:bg-zinc-100 flex items-center px-3 gap-3 rounded-lg has-[:checked]:text-blue-500 has-[:checked]:bg-blue-50 has-[:checked]:ring-blue-300 has-[:checked]:ring-1 select-none"
-          >
-            <div class="w-5">
-              <!-- Icône acteur -->
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zM12 18c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6z"></path>
-              </svg>
-            </div>
-            Acteur
-            <input
-              type="radio"
-              name="role"
-              class="w-4 h-4 absolute accent-blue-500 right-3"
-              id="acteur"
-              onClick={() => selectedRole = 'acteur'}
-            />
-          </label>
-        </div>
+        <form method="get" action="" class="mb-8">
+          <div class="w-[300px] px-4 py-5 bg-white flex flex-col gap-3 rounded-md shadow-[0px_0px_15px_rgba(0,0,0,0.09)]">
+            <legend class="text-xl font-semibold mb-3 select-none">Choisir un rôle</legend>
+            
+            <label
+              for="animateur"
+              class={`font-medium h-14 relative hover:bg-zinc-100 flex items-center px-3 gap-3 rounded-lg ${selectedRole === 'animateur' ? 'text-blue-500 bg-blue-50 ring-blue-300 ring-1' : ''} select-none`}
+            >
+              <div class="w-5 fill-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" viewBox="0 0 512 512">
+                  <path d="M256 8c-137 0-248 111-248 248s111 248 248 248 248-111 248-248-111-248-248-248zM256 464c-107 0-194-87-194-194s87-194 194-194 194 87 194 194-87 194-194 194z"></path>
+                </svg>
+              </div>
+              Animateur
+              <input
+                type="radio"
+                name="role"
+                value="animateur"
+                class="w-4 h-4 absolute accent-blue-500 right-3"
+                id="animateur"
+                checked={selectedRole === 'animateur'}
+                onchange="this.form.submit()"
+              />
+            </label>
+            
+            <label
+              for="realisateur"
+              class={`font-medium h-14 relative hover:bg-zinc-100 flex items-center px-3 gap-3 rounded-lg ${selectedRole === 'realisateur' ? 'text-blue-500 bg-blue-50 ring-blue-300 ring-1' : ''} select-none`}
+            >
+              <div class="w-5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 5h-14c-1.104 0-1.995.897-1.995 2l-.005 12c0 1.103.895 2 1.995 2h14c1.104 0 1.995-.897 1.995-2v-12c0-1.103-.895-2-1.995-2zM19 19h-14v-12h14v12zM7 15h10v2h-10zm0-4h10v2h-10z"></path>
+                </svg>
+              </div>
+              Réalisateur
+              <input
+                type="radio"
+                name="role"
+                value="realisateur"
+                class="w-4 h-4 absolute accent-blue-500 right-3"
+                id="realisateur"
+                checked={selectedRole === 'realisateur'}
+                onchange="this.form.submit()"
+              />
+            </label>
+            
+            <label
+              for="acteur"
+              class={`font-medium h-14 relative hover:bg-zinc-100 flex items-center px-3 gap-3 rounded-lg ${selectedRole === 'acteur' ? 'text-blue-500 bg-blue-50 ring-blue-300 ring-1' : ''} select-none`}
+            >
+              <div class="w-5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zM12 18c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6z"></path>
+                </svg>
+              </div>
+              Acteur
+              <input
+                type="radio"
+                name="role"
+                value="acteur"
+                class="w-4 h-4 absolute accent-blue-500 right-3"
+                id="acteur"
+                checked={selectedRole === 'acteur'}
+                onchange="this.form.submit()"
+              />
+            </label>
+            
+            {selectedRole && (
+              <div class="mt-2 text-center">
+                <a href="?" class="text-blue-500 hover:underline">Voir tous les invités</a>
+              </div>
+            )}
+          </div>
+        </form>
 
         <!-- Grille des invités filtrés -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
-            {filteredInvites && filteredInvites.map((invite) => (
+            {invites && invites.map((invite) => (
                 <CardInvite {...invite} />
             ))}
         </div>
+        
+        {invites.length === 0 && (
+          <p class="text-center text-gray-500 mt-8">Aucun invité trouvé pour ce rôle.</p>
+        )}
     </div>
-</Layout>
+</Layout> 

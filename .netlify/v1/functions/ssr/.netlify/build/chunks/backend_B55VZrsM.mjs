@@ -28,7 +28,7 @@ async function getFilms() {
 }
 
 
-
+// Récupérer un film par ID
 async function getFilmById(id) {
     try {
         let film = await pb.collection('Films').getOne(id);
@@ -47,7 +47,7 @@ async function getFilmById(id) {
     }
 }
 
-
+// Récupérer les activités avec les détails des invités associés
 async function getActivities() {
     try {
         let activities = await pb.collection('activite').getFullList({
@@ -75,6 +75,7 @@ async function getActivities() {
     }
 }
 
+// Récupérer les activités par type
 async function getInvites() {
     try {
         let invites = await pb.collection('Invites').getFullList({
@@ -98,4 +99,28 @@ async function getInvites() {
     }
 }
 
-export { getFilmById as a, getFilms as b, getInvites as c, getActivities as g };
+// Récupérer les invités par rôle
+async function getInvitesByRole(role) {
+    try {
+        let invites = await pb.collection('Invites').getFullList({
+            sort: 'prenom',
+            filter: `Role="${role}"`, // Assurez-vous que le nom du champ "role" est correct
+            expand: 'Role' // Si role est une relation, il faut l'étendre
+        });
+
+        const updatedInvites = invites.map((invite) => {
+            const imageUrl = invite.photo_invites 
+                ? pb.files.getUrl(invite, invite.photo_invites) 
+                : "/placeholder.svg";
+
+            return { ...invite, imageUrl };
+        });
+
+        return updatedInvites;
+    } catch (error) {
+        console.error('Erreur lors de la récupération des invités par rôle:', error);
+        return [];
+    }
+}
+
+export { getFilmById as a, getFilms as b, getInvites as c, getInvitesByRole as d, getActivities as g };

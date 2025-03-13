@@ -1,6 +1,6 @@
 import { e as createComponent, i as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from '../chunks/astro/server_DDD3AwPw.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_Dr2rNooM.mjs';
+import { $ as $$Layout } from '../chunks/Layout_B5KAWsMa.mjs';
 export { renderers } from '../renderers.mjs';
 
 const pleineaire = new Proxy({"src":"/_astro/pleineaire.quGDI5I_.avif","width":627,"height":400,"format":"avif"}, {
