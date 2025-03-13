@@ -234,3 +234,26 @@ export async function getInviteById(id) {
         return null;
     }
 }
+
+
+export async function getInvitesByRole(role) {
+    try {
+        let invites = await pb.collection('Invites').getFullList({
+            sort: 'prenom',
+            filter: `role="${role}"`, // Filtrage par rôle
+        });
+
+        const updatedInvites = invites.map((invite) => {
+            const imageUrl = invite.photo_invites 
+                ? pb.files.getUrl(invite, invite.photo_invites) 
+                : "/placeholder.svg";
+
+            return { ...invite, imageUrl };
+        });
+
+        return updatedInvites;
+    } catch (error) {
+        console.error('Erreur lors de la récupération des invités par rôle:', error);
+        return [];
+    }
+}
