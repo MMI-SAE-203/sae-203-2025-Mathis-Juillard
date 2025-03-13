@@ -9,10 +9,9 @@ if (!film) {
     return Astro.redirect('/films');
 }
 
-const embedUrl = `https://www.youtube.com/embed/${film.trailer_film.split('v=')[1]}`;
 ---
 
-<Layout>
+<Layout> 
     <div 
     class="min-h-screen flex items-center justify-center py-10 relative bg-gray-900/80"
     style={`background: url('${film.imageUrl || "/placeholder.jpg"}') center/cover no-repeat; backdrop-filter: blur(10px);`}
@@ -55,19 +54,19 @@ const embedUrl = `https://www.youtube.com/embed/${film.trailer_film.split('v=')[
         </div>
       </div>
 
-      <div class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Bande-annonce</h2>
+      <h2 class="text-2xl font-semibold mb-2 font-sans">Bande-annonce</h2>
+      <div class="mb-6 justify-self-center">
         {film.trailer_film ? (
           <div class="relative w-full h-0" style="padding-bottom: 56.25%;">
             <iframe 
-              class="absolute top-0 left-0 w-full h-full rounded-lg"
-              src={embedUrl} 
-              title="YouTube video player" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" 
-              allowfullscreen>
-            </iframe>
+            width="560" 
+            height="315" 
+            src={film.trailer_film} 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen></iframe>
           </div>
         ) : (
           <p class="text-gray-700">Pas de bande-annonce disponible</p>

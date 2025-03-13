@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import pleineaire from '../assets/pleineaire.avif';
+import chienhomme from '../assets/chienhomme.avif';
+import camera from '../assets/camera.avif';
 ---
 
 <Layout titre="À propos">
@@ -46,8 +48,8 @@ import pleineaire from '../assets/pleineaire.avif';
                 </p>
 
                 <div class="grid grid-cols-2 gap-4 mt-6">
-                    <img src="/images/equipe_1.jpg" alt="Membre de l'équipe avec un chien" class="w-full rounded-lg shadow-md">
-                    <img src="/images/equipe_2.jpg" alt="Tournage en plein air" class="w-full rounded-lg shadow-md">
+                    <img src= {chienhomme.src} alt="Membre de l'équipe avec un chien" class="w-full rounded-lg shadow-md">
+                    <img src= {camera.src} alt="Tournage en plein air" class="w-full rounded-lg shadow-md">
                 </div>
             </section>
 
@@ -83,7 +85,7 @@ import pleineaire from '../assets/pleineaire.avif';
             </section>
 
             <div class="text-center mt-8">
-                <a href="/programme" class="bg-pink-500 text-white py-3 px-6 rounded-lg text-lg font-semibold shadow-md hover:bg-pink-600 transition">
+                <a href="/films" class="bg-pink-500 text-white py-3 px-6 rounded-lg text-lg font-semibold shadow-md hover:bg-pink-600 transition">
                     → PROGRAMME
                 </a>
             </div>
