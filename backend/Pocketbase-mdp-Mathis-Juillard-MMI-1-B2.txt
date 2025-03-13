@@ -1,0 +1,30 @@
+﻿Mathis Juillard
+MMI-1
+B2
+
+
+
+
+
+
+
+
+SAE 203 — Concevoir un site web avec une source de données
+
+
+
+
+
+
+RENDU de la partie Backend sur le classroom :
+Dans un dossier appelé BACKEND, il faut rendre :
+* le MCD au format pdf ou png
+* le dossier pocketbase (contenant le dossier pb data)
+* les deux fichiers backend.mjs et testback.js
+* un fichier .text contenant le login et mdp (admin) de pocketbase
+
+
+
+
+login : mathisjuillard@icloud.com
+mdp : Mathisjuillard23
