@@ -3,11 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import CardInvite from '../../components/CardInvite.astro';
 import { getInvites, getInvitesByRole } from '../../../backend/backend.mjs';
 
-// Récupérer le rôle depuis les paramètres de requête
 const { Role } = Astro.url.searchParams;
 const selectedRole = Role || '';
 
-// Récupérer les invités en fonction du rôle sélectionné
 let invites = [];
 if (selectedRole) {
   invites = await getInvitesByRole(selectedRole);
@@ -95,7 +93,6 @@ if (selectedRole) {
           </div>
         </form>
 
-        <!-- Grille des invités filtrés -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
             {invites && invites.map((invite) => (
                 <CardInvite {...invite} />
